@@ -1,0 +1,30 @@
+@startuml esercizio
+
+actor "Azienda Interssata" as azienda
+actor "Responsabile dei Tirocini" as resp
+actor "Studente" as stud
+
+usecase "Produrre offerte di tirocinio" as offerta
+usecase "Approva offerta" as approva
+usecase "Rifiuta offerta" as rifiuta
+usecase "Offerta diventa visibile" as visibile
+usecase "Assegnazione ai tirocini" as assegn
+usecase "Approva accoppiamento" as app_acc
+usecase "Rifiuta accoppiamento" as rif_acc
+usecase "Stampa accordo" as stampa
+
+azienda --> offerta
+offerta --> resp
+resp --> approva
+resp --> rifiuta
+rifiuta --> azienda
+approva --> visibile
+visibile --> stud
+stud --> azienda
+azienda --> assegn
+resp --> assegn
+assegn --> app_acc
+assegn --> rif_acc
+app_acc --> stampa
+
+@enduml
